@@ -1,8 +1,12 @@
+// @generated automatically by Diesel CLI.
+
 diesel::table! {
     users (id) {
         id -> Integer,
-        name -> Text,
+        website -> Text,
+        username -> Text,
         password -> Text,
+        iv -> Text,
         create_at -> Timestamp,
     }
 }

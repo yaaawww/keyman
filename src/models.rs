@@ -5,17 +5,28 @@ use rocket::serde::{Deserialize, Serialize};
 #[serde(crate="rocket::serde")]
 pub struct User{
     pub id: i32,
-    pub name: String,
+    pub website: String,
+    pub username: String,
     pub password: String,
+    pub iv: String,
     #[serde(skip_deserializing)]
     pub create_at: String
 } 
 
 // query body
-#[derive(Insertable, Deserialize)]
+#[derive(Insertable, Deserialize, Debug)]
 #[serde(crate="rocket::serde")]
 #[table_name="users"]
 pub struct NewUser {
-    pub name: String,
+    pub website: String,
+    pub username: String,
     pub password: String,
+    pub iv: String,
 } 
+
+#[derive(Serialize)]
+pub struct RetUser {
+    pub website: String,
+    pub username: String,
+    pub password: String,
+}
