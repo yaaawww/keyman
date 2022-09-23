@@ -13,14 +13,10 @@ diesel = { version = "1.4.8", features = ["sqlite"] }
 hex = "0.4.3"
 base64 = "0.13.0"
 rand = "0.8.5"
-
-# used in crypto mod 
 rust-crypto = "0.2.36"
 pbkdf2 = "0.10"
-# hash
 sha2 = "0.10.6"
 hmac = "0.12.1"
-
 rand_core = { version = "0.6", features = ["std"] }
 serde = "1.0.117"
 serde_derive = "1.0.117"

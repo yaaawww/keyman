@@ -24,9 +24,28 @@ pub struct NewUser {
     pub iv: String,
 } 
 
+#[derive(Deserialize, Serialize, Debug)]
+#[serde(crate="rocket::serde")]
+pub struct Master {
+    pub username: String,
+    pub password: String,
+}
+
 #[derive(Serialize)]
 pub struct RetUser {
+    pub id: i32,
     pub website: String,
     pub username: String,
     pub password: String,
 }
+
+#[derive(Insertable, Deserialize, Debug)]
+#[serde(crate="rocket::serde")]
+#[table_name="users"]
+pub struct UpdatedUser {
+    pub id: i32,
+    pub website: String,
+    pub username: String,
+    pub password: String,
+    pub iv: String,
+} 

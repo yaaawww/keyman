@@ -1,7 +1,11 @@
 {
   "salt": {
-    "str": "J+Hghx9Fvt6A5jDM6k1rgQ",
+    "str": "TlxHoGafDfG0n7M/34soxQ",
     "length": 22
   },
-  "count": 10000
+  "count": 10000,
+  "varify": [
+    "KioqKioqKioqKioqKioqKg==",
+    "lA7MmGc="
+  ]
 }

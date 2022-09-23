@@ -1,3 +1,6 @@
+use std::str::Utf8Error;
+
+use diesel::r2d2::Error;
 use rand::{distributions::Alphanumeric, Rng, rngs::OsRng};
 use crate::{KEY, ApiError};
 
@@ -45,9 +48,14 @@ pub fn decrypt(pwd_str: String, iv_str: String) -> Result<String, ApiError> {
 
     let mut cipher = aes::ctr(KeySize::KeySize128, aes_key, &iv);
     let mut output: Vec<u8> = std::iter::repeat(0u8).take(pwd.len()).collect();
+    println!("{}", pwd_str);
     cipher.process(&pwd, &mut output[..]);
     // 0 iv, 1 cipher
-    Ok(std::str::from_utf8(&output).unwrap().to_string())
+    if let Ok(out) = std::str::from_utf8(&output) {
+        Ok(out.to_string())
+    } else {
+        Err(ApiError::ConventFail)
+    }
 }
 
 // generate a random password
@@ -59,7 +67,3 @@ pub fn generate_plain_key() -> String {
         .collect();
     s
 }
-
-//pub fn recover_key() -> String {
-
- 

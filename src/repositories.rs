@@ -1,5 +1,4 @@
-use crate::models::User;
-use crate::models::NewUser;
+use crate::models::{NewUser, User, UpdatedUser};
 use crate::schema::users;
 
 use diesel::{QueryResult, SqliteConnection, QueryDsl};
@@ -34,6 +33,23 @@ impl PwdRepository {
         Self::find(c, last_id) 
     }
     
+    pub fn save(c: &SqliteConnection, user: UpdatedUser) -> QueryResult<User> {
+        diesel::update(users::table.find(user.id))
+            .set((
+                users::website.eq(user.website.to_owned()),
+                users::username.eq(user.username.to_owned()),
+                users::password.eq(user.password.to_owned()), 
+                users::iv.eq(user.iv.to_owned())
+            ))
+            .execute(c)?;
+        Self::find(c, user.id)
+    }
+    
+    pub fn delete(c: &SqliteConnection, id: i32) -> QueryResult<usize> {
+        diesel::delete(users::table.find(id))
+        .execute(c)
+    }
+
     fn last_id(c: &SqliteConnection) -> QueryResult<i32> {
         users::table
             .select(users::id)
