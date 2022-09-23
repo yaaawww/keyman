@@ -1,7 +1,5 @@
-use std::str::Utf8Error;
-
-use diesel::r2d2::Error;
 use rand::{distributions::Alphanumeric, Rng, rngs::OsRng};
+use rand_core::RngCore;
 use crate::{KEY, ApiError};
 
 use crypto::aes::{self, KeySize};
@@ -18,7 +16,9 @@ pub fn generate_cipher(password: String) -> Result<Vec<String>, ApiError>{
 
     // generate the vi TODO
     // fxxk error handle
-    let iv = [42u8; 16];
+    let mut iv = [42u8; 16];
+    OsRng.fill_bytes(&mut iv);
+    println!("{:?}", iv);
     //let file = std::fs::File::create("VectorFile").expect("create failed");
     //write(
         //"VectorFile",
@@ -62,7 +62,7 @@ pub fn decrypt(pwd_str: String, iv_str: String) -> Result<String, ApiError> {
 pub fn generate_plain_key() -> String {
     let s: String = rand::thread_rng()
         .sample_iter(&Alphanumeric)
-        .take(7)
+        .take(11)
         .map(char::from)
         .collect();
     s
