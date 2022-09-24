@@ -23,6 +23,10 @@ This is how we dec the cipher.
 
 <img src="https://www.waysoahc.xyz/demo_slides/keyman/assets/dec.jpg" />
 
+by the way
+
+you can see more from my [slide](https://www.waysoahc.xyz/demo_slides/keyman/index.html#/).
+
 ## Usage
 ```rust
 cargo run
