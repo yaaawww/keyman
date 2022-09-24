@@ -3,7 +3,7 @@
     <img src="./doc/rust_key.jpg" width=40% height=40%/>
 </p>
 
-A fast password manager writen in Rust.
+A fast password manager written in Rust.
 
 However, this is just the backend, if you want to use, you may need a application to use the api.
 
