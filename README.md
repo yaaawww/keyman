@@ -13,15 +13,15 @@ I recommend you to use the front [project](https://github.com/Jacen-cpu/keyman-f
 
 we use PBKDF2 to the key.<br/>
 
-<img src="https://www.waysoahc.xyz/demo_slides/keyman/assets/gen.jpg" width=70% height=70% />
+<img src="./doc/gen.jpg" width=70% height=70% />
 
 we use AES to enc user's password.
 
-<img src="https://www.waysoahc.xyz/demo_slides/keyman/assets/enc.jpg" width=70% height=70% />
+<img src="./doc/enc.jpg" width=70% height=70% />
 
 This is how we dec the cipher.
 
-<img src="https://www.waysoahc.xyz/demo_slides/keyman/assets/dec.jpg" />
+<img src="./doc/dec.jpg" />
 
 by the way
 
