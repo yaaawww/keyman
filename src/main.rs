@@ -1,8 +1,6 @@
 use rocket::{routes, catchers};
 use rocket_sync_db_pools::database;
 #[macro_use] extern crate diesel;
-// use rocket_cors::{AllowedHeaders, AllowedOrigins};
-// use rocket::http::Method;
 
 mod models;
 mod repositories;
@@ -28,18 +26,9 @@ pub enum ApiError {
     ConventFail,
 }
 
+#[allow(unused)]
 #[rocket::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // let allowed_origins = AllowedOrigins::some_exact(&["https://localhost:3000"]);
-
-    // let cors = rocket_cors::CorsOptions {
-    // allowed_origins,
-    // allowed_methods: vec![Method::Get].into_iter().map(From::from).collect(),
-    // allowed_headers: AllowedHeaders::some(&["Authorization", "Accept"]),
-    // allow_credentials: true,
-    // ..Default::default()
-    // }.to_cors().expect("error creating CORS fairing");
-
     rocket::build()
         .mount( "/api", routes![
             add_key,

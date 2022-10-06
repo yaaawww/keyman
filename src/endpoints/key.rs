@@ -19,7 +19,7 @@ use std::fs::File;
 use std::io::Read;
 
 #[post("/", format="json", data="<new_key>")]
-pub async fn add_key(conn: DbConn, new_key: Json<NewUser>, auth: AuthStruct) -> Result<Value, status::Custom<Value>> {
+pub async fn add_key(conn: DbConn, new_key: Json<NewUser>, _auth: AuthStruct) -> Result<Value, status::Custom<Value>> {
     // here we crypto our key
     let cipher_vec = crypto_key();
     let mut new_record = new_key.into_inner();
@@ -47,7 +47,7 @@ pub async fn add_key(conn: DbConn, new_key: Json<NewUser>, auth: AuthStruct) -> 
 
 
 #[get("/")]
-pub async fn get_all_key(conn: DbConn, auth: AuthStruct) -> Result<Value, status::Custom<Value>>{
+pub async fn get_all_key(conn: DbConn, _auth: AuthStruct) -> Result<Value, status::Custom<Value>>{
     conn.run(|con| {
             PwdRepository::find_all(con)
                 .map(|user| {
@@ -63,7 +63,7 @@ pub async fn get_all_key(conn: DbConn, auth: AuthStruct) -> Result<Value, status
 }
 
 #[get("/<site_addr>")]
-pub async fn get_key(conn: DbConn, site_addr: String, auth: AuthStruct) -> Result<Value, status::Custom<Value>>{
+pub async fn get_key(conn: DbConn, site_addr: String, _auth: AuthStruct) -> Result<Value, status::Custom<Value>>{
     conn.run(|con| {
             PwdRepository::find_pwd(con, site_addr)
                 .map(|user| {
@@ -79,7 +79,7 @@ pub async fn get_key(conn: DbConn, site_addr: String, auth: AuthStruct) -> Resul
 }
 
 #[delete("/<id>")]
-pub async fn delete_key(conn: DbConn, id: i32, auth: AuthStruct) -> Result<Value, status::Custom<Value>> {
+pub async fn delete_key(conn: DbConn, id: i32, _auth: AuthStruct) -> Result<Value, status::Custom<Value>> {
     conn.run(move |con| {
         PwdRepository::delete(con, id)
         .map(|user| json!(user))
@@ -89,7 +89,7 @@ pub async fn delete_key(conn: DbConn, id: i32, auth: AuthStruct) -> Result<Value
 }
 
 #[put("/", format = "json", data = "<updated_key>")]
-pub async fn update_key(conn: DbConn, updated_key: Json<UpdatedUser>, auth: AuthStruct) -> Result<Value, status::Custom<Value>> {
+pub async fn update_key(conn: DbConn, updated_key: Json<UpdatedUser>, _auth: AuthStruct) -> Result<Value, status::Custom<Value>> {
     let cipher_vec = crypto_key();
 
     let mut updated_key = updated_key.into_inner();
