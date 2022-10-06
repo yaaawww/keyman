@@ -1,22 +1,17 @@
 <h1 align="center"> Keyman </h1>
-<p align="center">
-    <img src="./doc/rust_key.jpg" width=40% height=40%/>
-</p>
+<h2 align="center">A fast password manager written in Rust</h2><br>
 
-A fast password manager written in Rust.
+This is a simple password manager, which is to handle the school internship program. Because It is too simple, so I written it by Rust. But it's common that manary password manager written in Rust.
 
 However, this is just the backend, if you want to use, you may need a application to use the api.
-
 I recommend you to use the front [project](https://github.com/Jacen-cpu/keyman-front) by myself. 
 
 ## Main Algorithm
-
 
 <p align="center">
 we use PBKDF2 to the key.<br/>
 <img src="./doc/gen.jpg" width=70% height=70% />
 </p>
-
 
 <p align="center">
 we use AES to enc user's password.
