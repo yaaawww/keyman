@@ -14,18 +14,9 @@ pub fn generate_cipher(password: String) -> Result<Vec<String>, ApiError>{
         }
     }
 
-    // generate the vi TODO
-    // fxxk error handle
     let mut iv = [42u8; 16];
     OsRng.fill_bytes(&mut iv);
     println!("{:?}", iv);
-    //let file = std::fs::File::create("VectorFile").expect("create failed");
-    //write(
-        //"VectorFile",
-        //base64::encode(&vi)
-    //).unwrap(); 
-
-    // mode key vi
 
     let mut cipher = aes::ctr(KeySize::KeySize128, aes_key, &iv);
     let mut output: Vec<u8> = std::iter::repeat(0u8).take(password.len()).collect();

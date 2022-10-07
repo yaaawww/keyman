@@ -1,0 +1,11 @@
+{
+  "salt": {
+    "str": "B1oG/e42yrMjtiSY81X5WQ",
+    "length": 22
+  },
+  "count": 10000,
+  "varify": [
+    "AjztAc8IbPSWv6r3U7LyOQ==",
+    "1j0vOzI="
+  ]
+}

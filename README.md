@@ -6,6 +6,12 @@ This is a simple password manager, which is to handle the school internship prog
 However, this is just the backend, if you want to use, you may need a application to use the api.
 I recommend you to use the front [project](https://github.com/Jacen-cpu/keyman-front) by myself. 
 
+## Main Construction
+
+<p align="center">
+<img src="./doc/construction.png" />
+</p>
+
 ## Main Algorithm
 
 <p align="center">
@@ -14,7 +20,7 @@ we use PBKDF2 to the key.<br/>
 </p>
 
 <p align="center">
-we use AES to enc user's password.
+we use AES to enc user's password.<br>
 <img src="./doc/enc.jpg" align="center" width=70% height=70% />
 </p>
 
@@ -23,9 +29,7 @@ This is how keyman dec the cipher.
 <img src="./doc/dec.jpg" />
 </p>
 
-by the way
-
-you can see more design detail from my [slide](https://www.waysoahc.xyz/demo_slides/keyman/index.html#/).
+**by the way you can see more design detail from my [slide](https://www.waysoahc.xyz/demo_slides/keyman/index.html#/).**
 
 ## Usage
 
