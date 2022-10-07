@@ -40,12 +40,12 @@ cargo run
 ## Basic api
 
 ```
-(add_key)           POST    /api/ application/json
+(add_key)           POST    /api/               (application/json)
 (get_all_key)       GET     /api/
-(update_key)        PUT     /api/ application/json
+(update_key)        PUT     /api/               (application/json)
 (delete_key)        DELETE  /api/<id>
-(login_master)      POST    /api/login application/json
-(register_password) POST    /api/register application/json
+(login_master)      POST    /api/login          (application/json)
+(register_password) POST    /api/register       (application/json)
 (get_key)           GET     /api/<site_addr>
 ```
 
