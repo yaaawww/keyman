@@ -29,7 +29,7 @@ This is how keyman dec the cipher.
 <img src="./doc/dec.jpg" />
 </p>
 
-**by the way you can see more design detail from my [slide](https://www.waysoahc.xyz/demo_slides/keyman/index.html#/).**
+**by the way you can see more design detail from my [slide](http://waysoahc.xyz/demo_slides/keyman/index.html#/).**
 
 ## Usage
 
